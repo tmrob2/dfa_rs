@@ -5,7 +5,7 @@ fn main() {
     let mut transitions: HashMap<u32, Box<Tfunc>> = HashMap::new();
     transitions.insert(0, Box::new(goto_a));
     // Call transitions test
-    let qprime: u32 = transitions.get(&0u32).unwrap()("a");
+    // let qprime: u32 = transitions.get(&0u32).unwrap()("a");
     println!("transitions from (0, a) -> {:?}", qprime);
     // construct a new DFA
     let test_dfa: DFA<2, 1, 1> = DFA {
@@ -14,7 +14,7 @@ fn main() {
         rejecting: [2],
         transitions
     };
-    test_dfa.transitions.get(&0)("a");
+    let qprime: u32 = test_dfa.transitions.get(&0u32).unwrap()("a");
     // because we are going to use value iteration, it will
     // be important that that we do not store a dfa state just
     // whatever the input is
